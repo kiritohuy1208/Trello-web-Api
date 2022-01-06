@@ -1,0 +1,24 @@
+{
+  "name": "trello-web-api",
+  "version": "1.0.0",
+  "description": "Api for Trello",
+  "main": "src/server.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kiritohuy1208/Trello-web-Api.git"
+  },
+  "keywords": [],
+  "author": "HuyToQuang",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kiritohuy1208/Trello-web-Api/issues"
+  },
+  "homepage": "https://github.com/kiritohuy1208/Trello-web-Api#readme",
+  "dependencies": {
+    "express": "^4.17.2"
+  }
+}
