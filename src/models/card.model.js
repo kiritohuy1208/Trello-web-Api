@@ -1,11 +1,11 @@
 import Joi from "joi";
 import { getDB } from "*/config/mongodb";
 
-const cardCollectionName = "columns";
+const cardCollectionName = "cards";
 const cardCollectionSchema = Joi.object({
   boardId: Joi.string().required(),
   columnId: Joi.string().required(),
-  title: Joi.string().required().min(3).max(20),
+  title: Joi.string().required().min(3).max(30).trim(),
   cover: Joi.string().default(null),
   createAt: Joi.date().timestamp().default(Date.now()),
   updateAt: Joi.date().timestamp().default(null),
@@ -28,8 +28,8 @@ const createNew = async (data) => {
       .findOne(result.insertedId);
 
     return newCard;
-  } catch (e) {
-    console.log(e);
+  } catch (error) {
+    throw new Error(error);
   }
 };
 export const CardModel = { createNew };
