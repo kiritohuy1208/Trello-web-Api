@@ -22,10 +22,9 @@ const createNew = async (data) => {
     const newBoard = await getDB()
       .collection(boardCollectionName)
       .findOne(result.insertedId);
-
     return newBoard;
   } catch (e) {
-    console.log(e);
+    throw Error(e);
   }
 };
 export const BoardModel = { createNew };
