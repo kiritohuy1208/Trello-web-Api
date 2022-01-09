@@ -7,5 +7,5 @@ router
   .route("/")
   //.get()
   .post(BoardValidation.createNew, BoardController.createNew);
-
+router.route("/:id").get(BoardController.getFullBoard);
 export const BoardRoute = router;
