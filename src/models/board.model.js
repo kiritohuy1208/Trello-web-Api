@@ -81,6 +81,7 @@ const getFullBoard = async (boardId) => {
         {
           $match: {
             _id: ObjectId(boardId),
+            _destroy: false,
           },
         },
         // {

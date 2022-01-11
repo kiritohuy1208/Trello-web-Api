@@ -38,4 +38,26 @@ const createNew = async (data) => {
     throw new Error(error);
   }
 };
-export const CardModel = { createNew, cardCollectionName };
+/**
+ *
+ * @param {Array id} ids
+ */
+const deleteMany = async (ids) => {
+  try {
+    const tranformIds = ids.map((i) => ObjectId(i));
+    const result = await getDB()
+      .collection(cardCollectionName)
+      .updateMany(
+        {
+          _id: { $in: tranformIds },
+        },
+        {
+          $set: { _destroy: true },
+        }
+      );
+    return result;
+  } catch (error) {
+    throw new Error(error);
+  }
+};
+export const CardModel = { createNew, cardCollectionName, deleteMany };
