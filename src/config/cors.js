@@ -1,4 +1,7 @@
-const whitelist = ["http://localhost:3000", "http://localhost:4000"];
+const whitelist = [
+  "http://localhost:3000",
+  "https://trello-clone-a8ad0.web.app",
+];
 export const corsOptions = {
   origin: function (origin, callback) {
     if (whitelist.indexOf(origin) !== -1) {

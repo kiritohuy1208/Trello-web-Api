@@ -16,7 +16,6 @@ const createNew = async (data) => {
 };
 const update = async (id, data) => {
   try {
-    console.log(data);
     const updateCard = {
       ...data.cardupdate,
       updateAt: Date.now(),
