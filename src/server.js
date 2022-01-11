@@ -6,8 +6,8 @@ import cors from "cors";
 import { corsOptions } from "*/config/cors";
 
 const host = env.APP_HOST || "localhost";
-const port = env.APP_PORT || 8017;
-
+//const port = env.APP_PORT || 8017;
+const port = env.APP_PORT || process.env.PORT;
 connectDB()
   .then(() => console.log("Connect db successfull"))
   .then(() => bootServer())
@@ -29,7 +29,11 @@ const bootServer = () => {
     res.send("Welcome to Api Trello");
   });
 
-  app.listen(port, host, () => {
+  // app.listen(port, host, () => {
+  //   console.log("Server api Trello start on port:" + port);
+  // });
+  //heroku deploy
+  app.listen(port, () => {
     console.log("Server api Trello start on port:" + port);
   });
 };
