@@ -23,3 +23,4 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 ### Author:
 
 Student of University Information Techonology : To Quang Huy.
+Package.json: "clean": "rd /s /q build && mkdir build",
