@@ -53,8 +53,10 @@ const update = async (id, data) => {
   try {
     let dateHandle = {
       ...data,
-      boardId: ObjectId(data.boardId),
     };
+    if (data.boardId) {
+      dateHandle.boardId = ObjectId(data.boardId);
+    }
     const result = await getDB()
       .collection(columnCollectionName)
       .findOneAndUpdate(

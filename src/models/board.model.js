@@ -41,11 +41,15 @@ const createNew = async (data) => {
 };
 const update = async (id, data) => {
   try {
+    let dataHandle = {
+      ...data,
+      //boardId: ObjectId(data.boardId),
+    };
     const result = await getDB()
       .collection(boardCollectionName)
       .findOneAndUpdate(
         { _id: ObjectId(id) },
-        { $set: data },
+        { $set: dataHandle },
         { upsert: true, returnDocument: "after" }
       );
     return result.value;

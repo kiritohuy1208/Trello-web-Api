@@ -60,4 +60,24 @@ const deleteMany = async (ids) => {
     throw new Error(error);
   }
 };
-export const CardModel = { createNew, cardCollectionName, deleteMany };
+const update = async (id, data) => {
+  try {
+    let dataHandle = {
+      ...data,
+    };
+    if (data.boardId) dataHandle.boardId = ObjectId(data.boardId);
+
+    if (data.columnId) dataHandle.columnId = ObjectId(data.columnId);
+    const result = await getDB()
+      .collection(cardCollectionName)
+      .findOneAndUpdate(
+        { _id: ObjectId(id) },
+        { $set: dataHandle },
+        { upsert: true, returnDocument: "after" }
+      );
+    return result.value;
+  } catch (error) {
+    throw new Error(error);
+  }
+};
+export const CardModel = { createNew, cardCollectionName, deleteMany, update };
